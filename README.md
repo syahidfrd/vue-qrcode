@@ -1,4 +1,6 @@
-# Vue qrcode reader and expot data
+# Vue qrcode reader & expot data
+
+!["Vue qrcode reader"](https://i.ibb.co/M2612QY/11.png "Vue qrcode reader")
 
 ## Project setup
 ```
@@ -13,17 +15,3 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
