@@ -24,13 +24,13 @@
                         </download-excel>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-responsive-sm table-bordered">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">ID Register</th>
                                     <th scope="col">Created at</th>
-                                    <th scope="col" width="10%">Del</th>
+                                    <th scope="col">Del</th>
                                 </tr>
                             </thead>
                             <tbody v-for="(user, index) in users" :key="user.id">
