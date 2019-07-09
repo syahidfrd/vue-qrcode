@@ -1,4 +1,4 @@
-# Vue qrcode reader & expot data
+## Vue qrcode reader & expot data. [Demo](https://vue-qrcode.herokuapp.com/)
 
 !["Vue qrcode reader"](https://i.ibb.co/M2612QY/11.png "Vue qrcode reader")
 
