@@ -1,4 +1,4 @@
-# vue-qrcode
+# Vue qrcode reader and expot data
 
 ## Project setup
 ```
