@@ -4,7 +4,7 @@
             <tr>
                 <td width="60px"><img src="../src/assets/logo.png" width="50px"></td>
                 <td>
-                    <span class="table-title"><b>#re-registration event</b></span>
+                    <span class="table-title"><b>#qrcode reader</b></span>
                     <br>
                     <span class="table-desc">Made with <span class="vue-font">Vue.js</span></span>
                 </td>
@@ -18,8 +18,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Users has successfully re-registered!
-                        <download-excel class="btn btn-sm btn-success float-right" :data="users" :fields="users_fields" name="Data Users.xls">
+                        <download-excel class="btn btn-sm btn-success" :data="qrcodes" :fields="qrcode_fields" name="data.xls">
                         Export Excel
                         </download-excel>
                     </div>
@@ -28,18 +27,18 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">ID Register</th>
+                                    <th scope="col">Data</th>
                                     <th scope="col">Created at</th>
-                                    <th scope="col">Del</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
-                            <tbody v-for="(user, index) in users" :key="user.id">
+                            <tbody v-for="(qrcode, index) in qrcodes" :key="qrcode.id">
                                 <tr>
-                                    <th scope="row">{{ user.id }}</th>
-                                    <td>{{ user.reg }}</td>
-                                    <td>{{ user.date }}</td>
+                                    <th scope="row">{{ qrcode.id }}</th>
+                                    <td>{{ qrcode.data }}</td>
+                                    <td>{{ qrcode.date }}</td>
                                     <td>
-                                        <a href="#" @click.prevent="deleteUser(index)">x</a>
+                                        <a href="#" @click.prevent="deleteQrcode(index)">x</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -53,7 +52,7 @@
                 <div class="card" style="width: 18rem;">
                     <qrcode-stream @decode="onDecode" @init="onInit" />
                     <div class="card-body">
-                        <p class="card-text">Please scan the qrcode event registration that we have sent via your email.</p>
+                        <p class="card-text">Please scan the qrcode.</p>
                         <hr>
                         <div class="alert" :class="alert" role="alert">
                             {{ status }}
@@ -74,48 +73,48 @@ export default {
   name: 'app',
   data() {
     return {
-      users: [
+      qrcodes: [
         {
           id: 1,
-          reg: 'B3092130',
+          data: 'Lorem',
           date: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
         },
         {
           id: 2,
-          reg: 'B3033130',
+          data: 'Ipsum',
           date: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
         }
       ],
-      users_fields: {
+      qrcode_fields: {
           'No': 'id',
-          'ID Register': 'reg',
+          'Data': 'data',
           'Created at': 'date',
       },
       error: '',
       status: 'Webcam ready!',
       alert: 'alert-warning',
-      idUser: 3
+      idQrcode: 3
     }
   },
   components: { QrcodeStream },
   methods: {
-    deleteUser(index) {
-      this.users.splice(index, 1)
+    deleteQrcode(index) {
+      this.qrcodes.splice(index, 1)
     },
     async onDecode (result) {
-      this.users.push({
-        id: this.idUser,
-        reg: result,
+      this.qrcodes.push({
+        id: this.idQrcode,
+        data: result,
         date: new Date().toJSON().slice(0,10).replace(/-/g,'/')
       })
 
-      this.idUser++
+      this.idQrcode++
 
       let audio = await new Audio('http://soundbible.com/mp3/Bike Horn-SoundBible.com-602544869.mp3')
       audio.play()
 
       this.alert = 'alert-success'
-      this.status = 'Success re-registration!'
+      this.status = 'Success!'
       setTimeout(() => {
         this.status = 'Webcam ready!',
         this.alert = 'alert-warning'
