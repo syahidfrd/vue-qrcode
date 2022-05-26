@@ -1,6 +1,6 @@
 ## Vue qrcode reader. [Demo](https://vue-qrcode.herokuapp.com/)
 
-!["Vue qrcode reader"](https://i.ibb.co/M2612QY/11.png "Vue qrcode reader")
+!["Vue qrcode reader"](https://i.ibb.co/mJwhF9h/Screen-Shot-2022-05-26-at-19-11-06.png "Vue qrcode reader")
 
 ## Project setup
 ```
